@@ -19,7 +19,7 @@ class Url extends Model implements AuthenticatableContract, AuthorizableContract
     public static function findByCode($code)
     {
         $id = unpack('i', base64_decode(str_pad(strtr($code, '-_', '+/'), strlen($code) % 4, '=')));
-        return ShortUrl::findOrFail($id);
+        return Url::findOrFail($id);
     }
     
 }

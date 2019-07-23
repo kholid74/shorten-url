@@ -40,11 +40,12 @@ $router->group(['middleware' => 'jwt.auth'],function() use ($router) {
  
 $router->group(['prefix' => 'api'], function () use ($router) {
 
-    //$router->get('/shorturl', 'UrlController@index');
-    $router->get('/{redirect}', 'UrlController@redirect');
+    $router->get('/shorturl', 'UrlController@index');
     $router->get('/shorturl/{id}', 'UrlController@show');
-    $router->post('/shorturl', 'UrlController@create');
     $router->put('/shorturl/{id}', 'UrlController@update');
     $router->delete('/shorturl/{id}', 'UrlController@delete');
  
 });
+
+$router->post('/createurl', 'UrlController@create');
+$router->get('/{redirect}', 'UrlController@redirect');

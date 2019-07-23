@@ -19,9 +19,8 @@ public function create(Request $request)
         ]);
         $shortUrl = new Url();
         $shortUrl->long_url = $request->get('url');
-        Url::create($request->all());
         $shortUrl->save();
-        return response()->json(['success'=>true, 'long_url'=>$shortUrl->getShortUrl()]);
+        return response()->json(['success'=>true, 'short_url'=>$shortUrl->getShortUrl()]);
     }
 
 public function redirect($code)
